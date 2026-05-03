@@ -23,6 +23,7 @@ export default function App() {
   const [loadingType, setLoadingType] = useState<'none' | 'extraction' | 'exani'>('none');
   const [showExaniFeedback, setShowExaniFeedback] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [logoError, setLogoError] = useState(false);
 
   // Dialectic Chat State
   const [chatMessages, setChatMessages] = useState<{ role: 'user' | 'model', text: string }[]>([]);
@@ -156,7 +157,19 @@ export default function App() {
         className="w-full max-w-xl text-center mb-16 space-y-2"
       >
         <div className="mb-6 flex justify-center">
-          <img src="./logo.png" alt="GdeLINEZ Logo" className="h-16 opacity-80 grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
+          {!logoError ? (
+            <img 
+              src="./Logo - GdeLINEZ.png" 
+              alt="GdeLINEZ Logo" 
+              className="h-16 opacity-80 grayscale hover:grayscale-0 transition-all duration-700" 
+              referrerPolicy="no-referrer" 
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <div className="h-16 w-16 rounded-full border-2 border-white/20 flex items-center justify-center text-white/40 font-bold text-xl tracking-tighter bg-black/40">
+              GP
+            </div>
+          )}
         </div>
         <h1 className="text-sm font-semibold tracking-[0.4em] text-white/40 uppercase">
           GdeLINEZ
