@@ -155,6 +155,9 @@ export default function App() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-xl text-center mb-16 space-y-2"
       >
+        <div className="mb-6 flex justify-center">
+          <img src="./logo.png" alt="GdeLINEZ Logo" className="h-16 opacity-80 grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer" />
+        </div>
         <h1 className="text-sm font-semibold tracking-[0.4em] text-white/40 uppercase">
           GdeLINEZ
         </h1>
